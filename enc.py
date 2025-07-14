@@ -33,7 +33,7 @@ def encrypt_file(filepath: str, password: str):
     with open(filepath + ".enc", 'wb') as f:
         f.write(salt + encrypted_data)
 
-    print(f"File '{filepath}' criptato come '{filepath}.enc'.")
+    print(f"File '{filepath}' crypted as '{filepath}.enc'.")
 
 # Decripta il file
 def decrypt_file(filepath: str, password: str):
@@ -49,7 +49,7 @@ def decrypt_file(filepath: str, password: str):
     try:
         decrypted_data = fernet.decrypt(encrypted_data)
     except Exception as e:
-        print("Password errata o file corrotto.")
+        print("Incorrect password or corrupted file.")
         return
 
     output_file = filepath.replace(".enc", ".dec")
@@ -57,12 +57,12 @@ def decrypt_file(filepath: str, password: str):
     with open(output_file, 'wb') as f:
         f.write(decrypted_data)
 
-    print(f"File '{filepath}' decriptato come '{output_file}'.")
+    print(f"File '{filepath}' decrypted as '{output_file}'.")
 
 # CLI usage
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Uso:")
+        print("Use:")
         print("  python3 enc.py e <file>")
         print("  python3 enc.py d <file.enc>")
         sys.exit(1)
@@ -71,10 +71,10 @@ if __name__ == "__main__":
     filepath = sys.argv[2]
 
     if not os.path.isfile(filepath):
-        print(f"File '{filepath}' non trovato.")
+        print(f"File '{filepath}' not found.")
         sys.exit(1)
 
-    password = getpass("Inserisci la password: ")
+    password = getpass("Insert Password: ")
 
     if command == "e":
         encrypt_file(filepath, password)
