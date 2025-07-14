@@ -1,3 +1,14 @@
+"""
+File Encryption and Decryption Script using Password-Based Key Derivation
+
+This script allows you to securely encrypt and decrypt files using a password.
+It uses PBKDF2 (Password-Based Key Derivation Function 2) with a random salt 
+and AES-based symmetric encryption (via Fernet) for strong protection.
+
+Author: Tommaso Palo
+Email: tommaso.palo@gmail.com
+"""
+
 import os
 import sys
 import base64
